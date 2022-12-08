@@ -12,15 +12,13 @@ import ErrorModal from "./components/Errors/ErrorModal"
 import './App.css';
 import CreateBookForm from "./components/Books/CreateBookForm";
 import Books from "./components/Books/Books";
-import {fetchBooks} from "./actions/book-actions";
-import {fetchSelections} from "./actions/selection-actions";
 
 function App() {
-  // const selections = useSelector(state => state.selections)
+  const selections = useSelector(state => state.selections)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch({ type: "FETCH_BOOKS" })
-    // dispatch(fetchSelections)
+    dispatch({ type: "FETCH_SELECTIONS" })
   }, [])
 
   return (
@@ -33,14 +31,14 @@ function App() {
     <div className="wrapper selections_wrapper">
       <h2 className="page_title">Selections</h2>
       <CreateSelectionForm />
-      {/* <AddBookToSelectionForm />
+      <AddBookToSelectionForm />
       { selections?.data.length > 0 && (
         <Accordion>
           {selections.data.map((el,i) => {
             return <Selection key={i} item={el} itemKey={i} />
           })}
         </Accordion>
-      )} */}
+      )}
     </div>
     <ErrorModal />
     </>

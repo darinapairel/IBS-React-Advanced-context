@@ -31,14 +31,14 @@ export const reducer = (state = { books: [], selections: { data: [] } }, action)
           ...action.payload,
         }
       }
-    case "CREATE_BOOK":
-      return {
-        ...state,
-        selections: {
-          ...state.books,
-          ...action.payload,
-        }
-      }
+    // case "CREATE_BOOK":
+    //   return {
+    //     ...state,
+    //     selections: {
+    //       ...state.books,
+    //       ...action.payload,
+    //     }
+    //   }
     case "CREATE_SELECTION_FULFILLED":
       return {
         ...state,

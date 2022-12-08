@@ -1,6 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {useState} from "react";
-import {addBookToSelection} from "../../actions/selection-actions";
 import {showError} from "../../actions/error-actions"
 
 function AddBookToSelectionForm() {
@@ -12,7 +11,7 @@ function AddBookToSelectionForm() {
 
   const onSubmit = () => {
     if (bookId && selectionId) {
-      dispatch(addBookToSelection(bookId, selectionId))
+      dispatch({ type: "ADD_BOOK_TO_SELECTION", payload: { bookId, selectionId } })
     } else {
       dispatch(showError("Please select book and selection"))
     }

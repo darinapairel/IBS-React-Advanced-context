@@ -1,6 +1,5 @@
 import { Accordion, Button } from "react-bootstrap"
 import { useDispatch } from 'react-redux'
-import {removeSelection} from "../../actions/selection-actions";
 import BookInSelection from "./BookInSelection";
 
 const Selection = (props) => {
@@ -18,7 +17,7 @@ const Selection = (props) => {
           {item.books && item?.books.map((el, i) => {
             return <BookInSelection selectionId={item._id} bookId={el[0]} key={i} />
           })}
-          <Button onClick={() => dispatch(removeSelection(item._id))}
+          <Button onClick={() => dispatch({ type: "REMOVE_SELECTION", payload: item._id })}
             className="remove_selection_btn"
             variant="outline-danger">
               Delete selection
