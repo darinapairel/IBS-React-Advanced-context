@@ -1,27 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux'
-import {useState} from "react";
-import {createSelection} from "../../actions/selection-actions";
-import {isObjectEmpty, isStringEmpty} from "../../utils/utils";
 import { useForm } from 'react-hook-form';
 
 
-function CreateSelectionForm() {
-  const dispatch = useDispatch()
+function CreateSelectionForm({onCreate}) {
+  // const dispatch = useDispatch()
 
   const {register, handleSubmit, errors} = useForm()
 
   const onSubmit = async (data) => {
     // debugger
 
-      dispatch(
-        {
-          type: "CREATE_SELECTION",
-          payload: {
+      onCreate( 
+          {
             title: data.selectionName,
             author: data.selectionAuthor,
             email: data.selectionEmail
           }
-        }
       )
   }
   return (
