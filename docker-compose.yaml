@@ -1,0 +1,16 @@
+version: "3,8"
+services:
+  server: 
+    build:
+      context: .
+    ports:
+      - "3000:7000"
+  front:
+    build:
+      args:
+        REACT_APP_API_PORT: 3000 
+      context: ./react
+    ports:
+      - "3001:3000"
+    depends_on:
+      - server

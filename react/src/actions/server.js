@@ -1,7 +1,8 @@
 import {showError} from "./error-actions"
 import axios from "axios"
 
-const SERVER = axios.create({baseURL: 'http://localhost:7000'})
+const port = process.env.REACT_APP_API_PORT || 7000 
+const SERVER = axios.create({baseURL: `http://localhost:${port}`})
 
 let store = null
 
